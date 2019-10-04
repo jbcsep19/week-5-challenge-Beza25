@@ -21,7 +21,7 @@ public class HomeController {
         model.addAttribute("jobs",jobsRepository.findAll());
         return "listJobs";
     }
-    @GetMapping("/postJob")
+    @GetMapping ("/postJob")
     public String postJob(Model model){
         model.addAttribute("job", new Jobs());
         return "jobForm";
@@ -31,25 +31,23 @@ public class HomeController {
                              //(name="postedDate")
                              @RequestParam String postedDate){
         String pattern = "yyyy-MM-dd";
-        System.out.println("before: " + postedDate);
         try{
             String formatedDate = postedDate;
             SimpleDateFormat format = new SimpleDateFormat(pattern);
             Date realDate = format.parse(formatedDate);
             job.setPostedDate(realDate);
-            System.out.println("after: " + realDate);
         }catch(java.text.ParseException e){
             e.printStackTrace();
         }
         jobsRepository.save(job);
-        return "listJobs";
+        return "redirect:/listJobs";
     }
 
 
 
 
     @PostMapping("/processearch")
-    public String searchResult(@RequestParam(name="serach") String search, Model model){
+    public String searchResult(@RequestParam(name="search") String search, Model model){
         model.addAttribute("jobs", jobsRepository.findByTitleContainingIgnoreCase(search));
         return "searchlist";
     }
