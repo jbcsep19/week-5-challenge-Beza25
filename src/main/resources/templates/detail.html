@@ -18,22 +18,25 @@
     <div class="jumbotron">
         <h1 class="display-4">Job Details</h1><br/>
         <h4 >  <span th:text="${job.title}"></span>  </h4>
-        <p>
-            By  <span th:text="  ${job.author}"></span>  || date <br/>
-            Posted on <span th:text="  ${#dates.format(job.postedDate, 'dd-MMM-yyyy' )}"></span><br/>
-        </p>
         <hr>
+        <p>
+            By  <span th:text="  ${job.author}"></span>  || posted on <span th:text="  ${#dates.format(job.postedDate, 'dd-MMM-yyyy' )}"></span>  ||
+            Contact me:  <span th:text="  ${job.phoneNumber}"></span>
+            <br/>
+        </p>
+
         <h5> Job Description</h5>
         <p>
             <span th:text="${job.description}"></span><br/>
-            Contact me:  <span th:text="  ${job.phoneNumber}"></span><br/><br/>
+
         </p>
 
+        <a href= "/postJob" class="btn btn-success" role="button">Post Job</a>
+        <a class="btn btn-success" href="/listJobs" role="button">job List</a>
+        <a  class="btn btn-danger" th:href="@{/delete/{id}(id=${job.id})}" role = "button">Delete Job</a>
 
-        <a class="btn btn-outline-danger" href="/listJobs" role="button">job List</a>
-        <a  class="btn btn-outline-danger" th:href="@{/delete/{id}(id=${job.id})}" role = "button">Delete Job</a>
 
-</div>
+    </div>
 </div>
 
 <footer th:insert="base :: footer"></footer>

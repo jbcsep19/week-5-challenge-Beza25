@@ -32,9 +32,9 @@ public class HomeController {
                              @RequestParam String postedDate){
         String pattern = "yyyy-MM-dd";
         try{
-            String formatedDate = postedDate;
+            String formattedDate = postedDate;
             SimpleDateFormat format = new SimpleDateFormat(pattern);
-            Date realDate = format.parse(formatedDate);
+            Date realDate = format.parse(formattedDate);
             job.setPostedDate(realDate);
         }catch(java.text.ParseException e){
             e.printStackTrace();
@@ -42,9 +42,6 @@ public class HomeController {
         jobsRepository.save(job);
         return "redirect:/listJobs";
     }
-
-
-
 
     @PostMapping("/processearch")
     public String searchResult(@RequestParam(name="search") String search, Model model){
@@ -66,7 +63,7 @@ public class HomeController {
     @RequestMapping("/delete/{id}")
     public String deleteFlight(@PathVariable ("id") long id){
         jobsRepository.deleteById(id);
-        return "redirect:/";
+        return "redirect:/listJobs";
     }
 
 
