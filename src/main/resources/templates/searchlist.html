@@ -27,15 +27,17 @@
 <nav th:replace="base :: navlinks"></nav>
 <div class="container">
     <div class="jumbotron">
-        <h1 class="display-4">Search Result</h1>
+        <h1 class="display-4">Search Result</h1><br/>
 
         <form th:each="job : ${jobs}">
             <h4><span th:text="${job.title}"></span></h4>
-            <p>
+            <hr>
+            <p class = "authorInfo" Style="color: gray()">
                 By <span th:text="  ${job.author}"></span> ||  Posted on <span th:text="  ${#dates.format(job.postedDate, 'dd-MMM-yyyy' )}"></span> ||
                 Contact me: <span th:text="  ${job.phoneNumber}"></span>
             </p>
-            <hr>
+
+
             <h5> Job Description</h5>
             <p>
                 <span th:text="${job.description}"></span><br/>
