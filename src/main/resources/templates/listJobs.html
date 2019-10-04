@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <header th:insert="base :: header"></header>
+    <style>
+
+        .container {
+            background-color: rgba(150 150 150 0.5);
+        }
+
+    </style>
+</head>
+<body>
+<nav th:replace="base :: navlinks"></nav>
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4" > Jobs List</h1><br/>
+        <a href="/add" class="btn btn-outline-primary" role="button">Post a Job</a>
+
+        <form action="#" th:each="job : ${jobs}">
+            <div class="alert alert-success" role="alert" th:if="${!jobs.isEmpty()}">
+                <h4 class="alert-heading" th:text = "${job.getTitle()}></h4>
+                <p> Posted by
+                <hr>
+                <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+            </div>
+        </form>
+
+<!--        <table class = "table" }">-->
+<!--            <thead>-->
+<!--            <tr>-->
+<!--                <th scope="col">Title</th>-->
+<!--                <th scope="col">Posted Date</th>-->
+<!--                <th scope="col">Author</th>-->
+<!--                <th scope="col">Phone Number</th>-->
+<!--                <th scope="col">Description</th>-->
+<!--                <td scope="action">Action</td>-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--            <tr th:each="job: ${jobs}">-->
+<!--                <td th:text="{job.}"-->
+
+<!--            </tr>-->
+<!--            </tbody>-->
+
+
+
+<!--        </table>-->
+
+
+    </div>
+</div>
+
+<footer th:insert="base :: footer"></footer>
+<div th:insert="base :: scripts"></div>
+</body>
+</html>

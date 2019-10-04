@@ -2,6 +2,7 @@ package com.example.demo;
 
 import net.bytebuddy.dynamic.loading.ClassReloadingStrategy;
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,6 +18,7 @@ public class Jobs {
 
     private String title;
     private String description;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date postedDate;
     private String author;
     private String phoneNumber;

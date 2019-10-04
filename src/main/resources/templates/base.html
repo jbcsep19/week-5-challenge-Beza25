@@ -8,11 +8,15 @@
               crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Vibes&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Righteous|Saira+Stencil+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Finger+Paint&display=swap" rel="stylesheet">
         <title th:fragment="head-title">Course and Student App</title>
         <style>
             body{
-                background: url("https://res.cloudinary.com/drpyvuhac/image/upload/v1570131232/bigstock-People-4900117PROFESSIONAL_vijioz.jpg");
+                background: url("https://res.cloudinary.com/drpyvuhac/image/upload/v1570197714/https_3A_2F_2Fblogs-images.forbes.com_2Fabdullahimuhammed_2Ffiles_2F2018_2F06_2Fpexels-photo-953216_hx8luw.jpg");
                 background-size: cover;
+            }
+            .navbar-brand{
+                font-family: 'Finger Paint', cursive;
             }
             .footer {
                 position: absolute;
@@ -31,7 +35,7 @@
 </head>
 <body>
 <nav th:fragment="navlinks" class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-    <a class="navbar-brand title" href="#">Course and Student App</a>
+    <a class="navbar-brand title" href="#">Work Up</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -42,7 +46,8 @@
                 <a class="nav-link" href="/">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/classes">Add a Job</a>
+<!--                deleted class="nav-link"-->
+                <a  href="/postJob" class="btn btn-success" role="button">Post Job</a>
             </li>
         </ul>
         <form th:action = "@{/processearch}" class="form-inline my-2 my-lg-0" method = "post">
