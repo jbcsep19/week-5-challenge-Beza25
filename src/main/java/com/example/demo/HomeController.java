@@ -58,7 +58,7 @@ public class HomeController {
     @RequestMapping("/detail/{id}")
     public String showFligtInfo(@PathVariable("id") long idDetail, Model model){
         model.addAttribute("job", jobsRepository.findById(idDetail).get());
-        return "show";
+        return "detail";
     }
     @RequestMapping("/update/{id}")
     public String updateFlight(@PathVariable("id") long id, Model model){
